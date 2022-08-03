@@ -1,0 +1,36 @@
+1. Make new django project
+
+2. pip install gunicorn django-heroku
+
+3. make a "runtime.txt" and input python version.
+
+4. Create a procfile and put "web.....logfile..."
+
+5.
+pip freeze > requirements.txt
+
+6. in settings.py, below from patlib import Path, add 
+import django_heroku
+import dj_database_url
+
+7. all the way to the bottom add these.
+
+STATIC_ROOL = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+django_heroku.settings(locals())
+
+8. in ALLOWED_HOSTS = [], do this ALLOWED_HOSTS = ['*']
+
+9. download heroku CLI and git if you have not an login
+
+10. in terminal, "heroku create <unique name>"
+heroku create djangoheroku-testjc
+
+11. git init
+
+12. git remove -v
+
+13.  git remote add heroku <link generated after heroku create <unique name>>
+git remote add heroku https://git.heroku.com/djangoheroku-testjc.git
+
+13. git add -A then git commit -m "<message>" then git push heroku master
